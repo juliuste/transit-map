@@ -1,0 +1,18 @@
+{
+	"name": "boilerplate",
+	"description": "",
+	"version": "0.0.0",
+	"keywords": [],
+	"author": "Julius Tens <mail@juliustens.eu>",
+	"homepage": "https://github.com/juliuste/boilerplate",
+	"repository": "juliuste/boilerplate",
+	"bugs": "https://github.com/juliuste/boilerplate/issues",
+	"main": "./index.js",
+	"dependencies": {},
+	"devDependencies": {},
+	"scripts": {},
+	"engines": {
+		"node": ">=8"
+	},
+	"license": "ISC"
+}
