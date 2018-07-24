@@ -3,20 +3,12 @@
 const l = require('lodash')
 const u = require('./util')
 
-const settings = {
-    offset: 10000,
-    maxWidth: 300,
-    maxHeight: 300,
-    minEdgeLength: 1,
-    maxEdgeLength: 8
-}
-
-const occlusionConstraints = require('./occlusion')(settings)
-const octolinearityConstraints = require('./octolinearity')(settings)
+const createOcclusionConstraints = require('./occlusion')
+const createOctolinearityConstraints = require('./octolinearity')
 
 // sets left !== right using a boolean variable (note that negativeRight = (-1) * right)
 // see: https://math.stackexchange.com/a/1517850
-const notEqual = (left, negativeRight, boolean) => {
+const createNotEqual = (settings) => (left, negativeRight, boolean) => {
     const upperBound = settings.maxEdgeLength + 1
     return [
         `${left} ${negativeRight} - ${upperBound} ${boolean} <= -0.5`,
@@ -24,9 +16,13 @@ const notEqual = (left, negativeRight, boolean) => {
     ]
 }
 
-const createGenerateLP = (graph) => (outputStream) => {
+const createGenerateLP = (graph, settings) => (outputStream) => {
     const w = u.createWrite(outputStream)
     const wt = u.createWriteTab(outputStream)
+
+    const occlusionConstraints = createOcclusionConstraints(settings)
+    const octolinearityConstraints = createOctolinearityConstraints(settings)
+    const notEqual = createNotEqual(settings)
 
     // prepare variables
     const coefficients = {
