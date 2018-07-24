@@ -1,13 +1,32 @@
 {
 	"name": "transit-map",
-	"description": "",
+	"description": "Generate a schematic map (“metro map”) for a given (transit) network graph using Mixed Integer Programming.",
 	"version": "0.0.0",
-	"keywords": [],
+	"keywords": [
+		"transit",
+		"transport",
+		"network",
+		"map",
+		"graph",
+		"schematic",
+		"layout",
+		"metro"
+	],
 	"author": "Julius Tens <mail@juliustens.eu>",
 	"homepage": "https://github.com/juliuste/transit-map",
 	"repository": "juliuste/transit-map",
 	"bugs": "https://github.com/juliuste/transit-map/issues",
 	"main": "./index.js",
+	"files": [
+		"index.js",
+		"bin.js",
+		"prepare-graph/*",
+		"generate-lp/*",
+		"revise-solution/*"
+	],
+	"bin": {
+		"transit-map": "./bin.js"
+	},
 	"dependencies": {
 		"child-process-promise": "^2.2.1",
 		"closest-to": "^2.0.0",
