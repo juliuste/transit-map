@@ -5,7 +5,6 @@ Generate a schematic map (“metro map”) for a given (transit) network graph u
 **Work in progress, DO NOT USE THIS IN PRODUCTION!**
 
 [![npm version](https://img.shields.io/npm/v/transit-map.svg)](https://www.npmjs.com/package/transit-map)
-[![Greenkeeper badge](https://badges.greenkeeper.io/juliuste/transit-map.svg)](https://greenkeeper.io/)
 [![dependency status](https://img.shields.io/david/juliuste/transit-map.svg)](https://david-dm.org/juliuste/transit-map)
 [![license](https://img.shields.io/github/license/juliuste/transit-map.svg?style=flat)](license)
 [![chat on gitter](https://badges.gitter.im/juliuste.svg)](https://gitter.im/juliuste)
