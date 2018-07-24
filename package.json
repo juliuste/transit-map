@@ -9,13 +9,18 @@
 	"bugs": "https://github.com/juliuste/transit-map/issues",
 	"main": "./index.js",
 	"dependencies": {
+		"child-process-promise": "^2.2.1",
 		"closest-to": "^2.0.0",
 		"lodash": "^4.17.10",
 		"parse-gurobi-solution": "^0.0.0",
+		"pify": "^3.0.0",
 		"randomatic": "^3.0.0",
 		"robust-determinant": "^1.1.0",
 		"robust-segment-intersect": "^1.0.1",
-		"segseg": "^0.2.2"
+		"segseg": "^0.2.2",
+		"stream-to-promise": "^2.2.0",
+		"svg-transit-map": "^0.0.1",
+		"tmp": "^0.0.33"
 	},
 	"scripts": {},
 	"engines": {
