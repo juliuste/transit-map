@@ -55,7 +55,7 @@ The module can be used as a JS library, documentation for this will follow.
 
 ![Berlin metro map](examples/bvg.output.svg)
 
-using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
+Using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
 
 ### 🇦🇹 Vienna (Metro)
 
@@ -67,7 +67,7 @@ using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
 
 ![Vienna metro map](examples/wien.output.svg)
 
-using [this](examples/wien.input.json) input graph. Running time ≈20sec.
+Using [this](examples/wien.input.json) input graph. Running time ≈20sec.
 
 ### 🇸🇪 Stockholm (Metro)
 
@@ -79,7 +79,7 @@ using [this](examples/wien.input.json) input graph. Running time ≈20sec.
 
 ![Stockholm metro map](examples/stockholm.output.svg)
 
-using [this](examples/stockholm.input.json) input graph. Running time ≈20sec.
+Using [this](examples/stockholm.input.json) input graph. Running time ≈20sec.
 
 ### 🇵🇹 Lisbon (Metro)
 
@@ -91,7 +91,7 @@ using [this](examples/stockholm.input.json) input graph. Running time ≈20sec.
 
 ![Lisbon metro map](examples/lisboa.output.svg)
 
-using [this](examples/lisboa.input.json) input graph. Running time ≈15sec.
+Using [this](examples/lisboa.input.json) input graph. Running time ≈15sec.
 
 ### 🇫🇷 Nantes (Tram)
 
@@ -103,7 +103,7 @@ using [this](examples/lisboa.input.json) input graph. Running time ≈15sec.
 
 ![Nantes metro map](examples/nantes.output.svg)
 
-using [this](examples/nantes.input.json) input graph. Running time ≈15sec.
+Using [this](examples/nantes.input.json) input graph. Running time ≈15sec.
 
 ### 🇫🇷 Montpellier (Tram)
 
@@ -115,7 +115,7 @@ using [this](examples/nantes.input.json) input graph. Running time ≈15sec.
 
 ![Montpellier tram map](examples/montpellier.output.svg)
 
-using [this](examples/montpellier.input.json) input graph. Running time ≈20sec.
+Using [this](examples/montpellier.input.json) input graph. Running time ≈20sec.
 
 ## To do
 
