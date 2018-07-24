@@ -2,6 +2,7 @@
 
 const prepareGraph = require('./prepare-graph')
 const createGenerateLP = require('./generate-lp')
+const createReviseSolution = require('./revise-solution')
 
 const settings = {
     offset: 10000,
@@ -14,8 +15,9 @@ const settings = {
 const TransitMapSolver = (networkGraph) => {
     const graph = prepareGraph(networkGraph)
     const generateLP = createGenerateLP(graph, settings)
+    const reviseSolution = createReviseSolution(graph, settings)
 
-    return ({generateLP})
+    return ({generateLP, reviseSolution})
 }
 
 module.exports = TransitMapSolver
