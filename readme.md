@@ -8,6 +8,12 @@ Generate a schematic map (“metro map”) for a given (transit) network graph u
 [![license](https://img.shields.io/github/license/juliuste/transit-map.svg?style=flat)](license)
 [![chat on gitter](https://badges.gitter.im/juliuste.svg)](https://gitter.im/juliuste)
 
+* [Installation & Requirements](#installation--requirements)
+* [Usage](#usage)
+* [Examples](#examples)
+* [To do](#to-do)
+* [Contributing](#contributing)
+
 ## Installation & Requirements
 
 **Sadly, for now, you need a valid copy of the commercial [Gurobi](https://www.gurobi.com/) solver (free academic licenses) in order to run this project. In the near future however, this project will hopefully also support the open `CBC` solver. Stay tuned.**
