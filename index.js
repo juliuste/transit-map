@@ -59,7 +59,10 @@ const transitMap = async (networkGraph, opt) => {
     await solver.generateLP(lpStream)
 
     // run solver
-    await runGurobi(options.workDir, options.verbose)
+    await (runGurobi(options.workDir, options.verbose).catch(e => {
+        console.error('Make sure `gurobi_cl` is in your $PATH')
+        throw new Error(e)
+    }))
 
     // read solution file
     const solStream = fs.createReadStream(path.resolve(options.workDir, 'solution.sol'))
