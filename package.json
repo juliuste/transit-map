@@ -19,13 +19,13 @@
 	"main": "./index.js",
 	"files": [
 		"index.js",
-		"bin.js",
+		"cli.js",
 		"prepare-graph/*",
 		"generate-lp/*",
 		"revise-solution/*"
 	],
 	"bin": {
-		"transit-map": "./bin.js"
+		"transit-map": "./cli.js"
 	},
 	"dependencies": {
 		"child-process-promise": "^2.2.1",
