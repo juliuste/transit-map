@@ -16,7 +16,7 @@ Generate a schematic map (“metro map”) for a given (transit) network graph u
 What you need:
 
 - [`node.js`](http://nodejs.org/) 8.0 or higher installed
-- [`gurobi_cl`] 7.5 or higher in your `$PATH`
+- [`gurobi_cl`](https://www.gurobi.com/) 7.5 or higher in your `$PATH`
 
 Then, to install the package (for CLI usage), simply run:
 
