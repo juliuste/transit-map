@@ -93,6 +93,18 @@ using [this](examples/stockholm.input.json) input graph. Running time ≈20sec.
 
 using [this](examples/lisboa.input.json) input graph. Running time ≈15sec.
 
+### Nantes (Tram)
+
+#### Input
+
+![Nantes metro network](examples/nantes.input.svg)
+
+#### Output
+
+![Nantes metro map](examples/nantes.output.svg)
+
+using [this](examples/nantes.input.json) input graph. Running time ≈15sec.
+
 ### Montpellier (Tram)
 
 #### Input
