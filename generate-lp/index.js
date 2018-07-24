@@ -2,6 +2,7 @@
 
 const l = require('lodash')
 const u = require('./util')
+const streamToPromise = require('stream-to-promise')
 
 const createOcclusionConstraints = require('./occlusion')
 const createOctolinearityConstraints = require('./octolinearity')
@@ -17,6 +18,8 @@ const createNotEqual = (settings) => (left, negativeRight, boolean) => {
 }
 
 const createGenerateLP = (graph, settings) => (outputStream) => {
+    const resultStream = streamToPromise(outputStream)
+
     const w = u.createWrite(outputStream)
     const wt = u.createWriteTab(outputStream)
 
@@ -207,7 +210,9 @@ const createGenerateLP = (graph, settings) => (outputStream) => {
     // 7. end
     w('End')
 
-    return
+    outputStream.end()
+
+    return resultStream
 }
 
 module.exports = createGenerateLP
