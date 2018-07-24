@@ -14,8 +14,7 @@
 		"randomatic": "^3.0.0",
 		"robust-determinant": "^1.1.0",
 		"robust-segment-intersect": "^1.0.1",
-		"segseg": "^0.2.2",
-		"through2-map": "^3.0.0"
+		"segseg": "^0.2.2"
 	},
 	"scripts": {},
 	"engines": {

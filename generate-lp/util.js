@@ -1,9 +1,7 @@
 'use strict'
 
 const l = require('lodash')
-const map = require('through2-map')
 
-const createStream = () => map(x => x) // todo…
 const createWrite = (stream) => (line) => stream.write(line + "\n")
 const createWriteTab = (stream) => (line) => stream.write(" " + line + "\n")
 
@@ -12,7 +10,6 @@ const edgeIndex = (graph, edge) => l.findIndex(graph.edges, e => JSON.stringify(
 const degree = (graph, nodeId) => graph.edges.filter(e => [e.source, e.target].includes(nodeId)).length
 
 module.exports = {
-    createStream,
     createWrite,
     createWriteTab,
 

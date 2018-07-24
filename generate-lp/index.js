@@ -24,10 +24,9 @@ const notEqual = (left, negativeRight, boolean) => {
     ]
 }
 
-const createGenerateLP = (graph) => () => {
-    const out = u.createStream()
-    const w = u.createWrite(out)
-    const wt = u.createWriteTab(out)
+const createGenerateLP = (graph) => (outputStream) => {
+    const w = u.createWrite(outputStream)
+    const wt = u.createWriteTab(outputStream)
 
     // prepare variables
     const coefficients = {
@@ -212,7 +211,7 @@ const createGenerateLP = (graph) => () => {
     // 7. end
     w('End')
 
-    return out
+    return
 }
 
 module.exports = createGenerateLP
