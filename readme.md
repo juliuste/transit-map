@@ -69,6 +69,18 @@ using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
 
 using [this](examples/wien.input.json) input graph. Running time ≈20sec.
 
+### Stockholm (Metro)
+
+#### Input
+
+![Stockholm metro network](examples/stockholm.input.svg)
+
+#### Output
+
+![Stockholm metro map](examples/stockholm.output.svg)
+
+using [this](examples/stockholm.input.json) input graph. Running time ≈20sec.
+
 ### Montpellier (Tram)
 
 #### Input
