@@ -8,7 +8,13 @@
 	"repository": "juliuste/boilerplate",
 	"bugs": "https://github.com/juliuste/boilerplate/issues",
 	"main": "./index.js",
-	"dependencies": {},
+	"dependencies": {
+		"lodash": "^4.17.10",
+		"randomatic": "^3.0.0",
+		"robust-determinant": "^1.1.0",
+		"robust-segment-intersect": "^1.0.1",
+		"segseg": "^0.2.2"
+	},
 	"devDependencies": {},
 	"scripts": {},
 	"engines": {
