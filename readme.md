@@ -47,11 +47,23 @@ The module can be used as a JS library, documentation for this will follow.
 
 ### BVG (Berlin Metro / U-Bahn)
 
+#### Input
+
+![BVG metro network](examples/bvg.input.svg)
+
+#### Output
+
 ![BVG metro map](examples/bvg.output.svg)
 
 using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
 
 ### Wiener Linien (Vienna Metro / U-Bahn)
+
+#### Input
+
+![Vienna metro network](examples/wien.input.svg)
+
+#### Output
 
 ![Vienna metro map](examples/wien.output.svg)
 
