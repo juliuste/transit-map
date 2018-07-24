@@ -79,7 +79,7 @@ using [this](examples/wien.input.json) input graph. Running time ≈20sec.
 
 ![Montpellier tram map](examples/montpellier.output.svg)
 
-using [this](examples/wien.input.json) input graph. Running time ≈20sec.
+using [this](examples/montpellier.input.json) input graph. Running time ≈20sec.
 
 ## To do
 
