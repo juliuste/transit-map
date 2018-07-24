@@ -2,7 +2,7 @@
 
 Generate a schematic map (“metro map”) for a given (transit) network graph using a Mixed Integer Programming approach. Part of the [*Generating Transit Maps*](https://github.com/public-transport/generating-transit-maps) project.
 
-**Work in progress, DO NOT USE THIS IN PRODUCTION!**
+**Work in progress, DO NOT USE THIS IN PRODUCTION!** See [todo](#to-do).
 
 [![npm version](https://img.shields.io/npm/v/transit-map.svg)](https://www.npmjs.com/package/transit-map)
 [![dependency status](https://img.shields.io/david/juliuste/transit-map.svg)](https://david-dm.org/juliuste/transit-map)
@@ -57,6 +57,19 @@ using [this](examples/bvg.input.json) input graph. Running time ≈40sec.
 ![Vienna metro map](examples/wien.output.svg)
 
 using [this](examples/wien.input.json) input graph. Running time ≈20sec.
+
+## To do
+
+Things I am still working on or someone should work on in the future, roughly in order of perceived importance:
+
+1. Properly document the current optimization algorithm
+2. Add example for full Berlin network (S-Bahn & U-Bahn), debug pre-processing with this (still fails with this network for some reason)
+3. Resolve todo comments in code
+4. Implement station labels
+5. Linearize objective function which would allow users to use non-commercial solvers like Cbc.
+6. Enable users to provide an old layout of the same network (or parts of it), the newly generated network should then have as few differences as possible to the older one.
+7. Further explore heuristical approaches to this problem.
+8. Write a paper. 😄
 
 ## Contributing
 
