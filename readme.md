@@ -77,7 +77,7 @@ Things I am still working on or someone should work on in the future, roughly in
 2. Add an example for full Berlin network (S-Bahn & U-Bahn), debug pre-processing with this (still fails with this network for some reason).
 3. Resolve todo comments in code.
 4. Write tests.
-5. Implement station labels.
+5. Improve algorithm: “Smoother” edges, higher distance for parallel lines, implement station labels.
 6. Linearize objective function which would allow users to use non-commercial solvers like Cbc.
 7. Enable users to provide an old layout of the same network (or parts of it), the newly generated network should then have as few differences as possible to the older one.
 8. Further explore heuristical approaches to this problem.
