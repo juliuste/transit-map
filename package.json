@@ -1,12 +1,12 @@
 {
-	"name": "boilerplate",
+	"name": "transit-map",
 	"description": "",
 	"version": "0.0.0",
 	"keywords": [],
 	"author": "Julius Tens <mail@juliustens.eu>",
-	"homepage": "https://github.com/juliuste/boilerplate",
-	"repository": "juliuste/boilerplate",
-	"bugs": "https://github.com/juliuste/boilerplate/issues",
+	"homepage": "https://github.com/juliuste/transit-map",
+	"repository": "juliuste/transit-map",
+	"bugs": "https://github.com/juliuste/transit-map/issues",
 	"main": "./index.js",
 	"dependencies": {
 		"lodash": "^4.17.10",
