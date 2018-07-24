@@ -55,6 +55,7 @@ const createOcclusionConstraints = (settings) => (graph, edge1, edge2) => {
         // set minimum distance for both edges in the given direction
         // const minDist = ['southwest-northeast', 'northwest-southeast', 'west-east'].includes(preferredDirection) ? 1 : 1
         let minDist = 1
+        // todo: fix parallel edges that are too close
         // if (!edgesAreClose) minDist = 1.25
         const endString = (directionFacts[preferredDirection].positive >= 3) ? `>= ${minDist}` : `<= -${minDist}`
 
