@@ -4,8 +4,8 @@ const planarize = require('./planarize')
 const addDirections = require('./add-directions')
 
 const prepareGraph = (networkGraph) => {
-    const planarGraph = planarize(graph)
-    const graphWithDirections = addDirections(graph)
+    const planarGraph = planarize(networkGraph)
+    const graphWithDirections = addDirections(planarGraph)
     return graphWithDirections
 }
 
