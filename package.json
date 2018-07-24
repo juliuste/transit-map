@@ -42,7 +42,8 @@
 		"stream-to-promise": "^2.2.0",
 		"svg-transit-map": "^0.0.1",
 		"tmp": "^0.0.33",
-		"write-json-file": "^2.3.0"
+		"virtual-dom-stringify": "^3.0.1",
+		"write": "^1.0.3"
 	},
 	"scripts": {},
 	"engines": {

@@ -4,13 +4,15 @@
 const l = require('lodash')
 const mri = require('mri')
 const getStdin = require('get-stdin')
-const writeJSON = require('write-json-file')
+const writeFile = require('write')
+const graphToSVG = require('svg-transit-map')
+const svgToString = require('virtual-dom-stringify')
 
 const transitMap = require('.')
 const pkg = require('./package.json')
 
 const argv = mri(process.argv.slice(2), {
-	boolean: ['help', 'h', 'version', 'v', 'silent', 's']
+	boolean: ['help', 'h', 'version', 'v', 'silent', 's', 'graph', 'g', 'invert-y', 'y']
 })
 
 if (argv.help === true || argv.h === true) {
@@ -24,6 +26,8 @@ Options:
 	--tmp-dir      -t  Directory to store intermediate files. Default: unique tmp dir.
 	--output-file  -o  File to store result (instead of stdout).
 	--silent       -s  Disable solver logging to stderr.
+	--graph        -g  Return JSON graph instead of SVG map.
+	--invert-y     -y  Invert the Y axis in SVG result.
 
 	--help         -h  Show this help message.
 	--version      -v  Show the version number.
@@ -42,7 +46,9 @@ if (argv.version === true || argv.v === true) {
 const config = {
 	workDir: argv['tmp-dir'] || argv.t || null,
 	verbose: !(argv.silent || argv.s || null),
-	outputFile: argv['output-file'] || argv.o || null
+	outputFile: argv['output-file'] || argv.o || null,
+	returnGraph: argv['graph'] || argv.g || false,
+	invertY: argv['invert-y'] || argv.y || false
 }
 
 const main = async () => {
@@ -52,11 +58,15 @@ const main = async () => {
 
 	const solution = await transitMap(graph, l.pick(config, ['workDir', 'verbose']))
 
-	if (config.outputFile) {
-		await writeJSON(outputFile, solution)
-	} else {
-		process.stdout.write(JSON.stringify(solution))
+	let result
+	if (config.returnGraph) result = JSON.stringify(graph)
+	else {
+		const svg = graphToSVG(solution, config.invertY)
+		result = svgToString(svg)
 	}
+
+	if (config.outputFile) await writeFile(outputFile, result)
+	else process.stdout.write(result)
 }
 
 main()
