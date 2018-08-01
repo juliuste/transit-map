@@ -11,3 +11,8 @@ shrinkwrap.yaml
 package-lock.json
 
 gurobi.log
+
+docs/*
+!docs/*.md
+!docs/*.tex
+!docs/*.pdf

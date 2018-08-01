@@ -1,0 +1,40 @@
+\documentclass[a4paper,11pt]{amsart}
+\usepackage[ngerman,german,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{listings}
+
+\title{Automatisches Generieren schematischer Verkehrsnetzkarten als Problem der ganzzahligen Optimierung (MIP)}
+\author{Julius Tens, Dirk Schumacher}
+\email{tensjuli@math.hu-berlin.de}
+% \date{1. August 2018}
+
+\begin{document}
+\maketitle
+
+\section*{Problem}
+
+\noindent Gegeben seien ein \textit{einfacher}, \textit{ungerichteter} Graph $G(V,E,L)$ bestehend aus Knoten $V$, Kanten $E$ und Linien $L$, sowie eine \textit{geradlinig planare} Einbettung $P$ dieses Graphen in die Ebene. Zu jedem Knoten $v_n$ sei also ein kartesisches Koordinatenpaar $(x_n | y_n) \in P$ bekannt (in der Regel über eine geeignete Projektion aus Geokoordinaten ermittelt), wobei es keine Schnittpunkte zwischen nicht benachbarten Kanten geben darf.
+\\\\
+Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphen $G(V,E,L)$ in die Ebene, die die folgenden Bedingungen erfüllen:
+\bigskip
+
+\begin{description}
+\item[Oktilinearität] Alle Kanten müssen Strecken sein, die parallel oder senkrecht zur x-Achse oder zur Identität verlaufen.
+\bigskip
+\item[Bewahrung der Regionen] $P'$ enthält die gleichen Regionen (\textit{Faces}) wie $P$, d.h. die „Sortierung der Kanten“ an jedem Knoten muss gleich bleiben.
+\bigskip
+\item[Mindestlängen] Jede Kante muss eine Länge $l_e >= l_{min}$ haben.
+\bigskip
+\end{description}
+
+\noindent Es wird insbesondere eine Einbettung $P'$ gesucht, die möglichst kurze Kantenlängen sowie wenige, bestenfalls stumpfwinklige „Knicke“ pro Linie hat.
+\bigskip
+\bigskip
+\bigskip
+
+% todo
+
+\end{document}
