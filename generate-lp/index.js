@@ -90,6 +90,7 @@ const createGenerateLP = (graph, settings) => (outputStream) => {
                 binary.ud.push(`ud${numAdjacentEdgeConstraints}`)
                 integer.q.push(`q${numAdjacentEdgeConstraints}`)
 
+                // adjacent edges of the same line
                 if (l.intersection(outer.metadata.lines, inner.metadata.lines).length > 0) {
                     // line bend
                     coefficients.q.push(1)
