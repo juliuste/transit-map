@@ -18,7 +18,7 @@
 
 \noindent Gegeben seien ein \textit{einfacher}, \textit{ungerichteter} Graph $G(V,E,L)$ bestehend aus Knoten $V$, Kanten $E$ und Linien $L$, sowie eine \textit{geradlinig planare} Einbettung $P$ dieses Graphen in die Ebene. Zu jedem Knoten $v_n$ sei also ein kartesisches Koordinatenpaar $(x_n | y_n) \in P$ bekannt (in der Regel über eine geeignete Projektion aus Geokoordinaten ermittelt), wobei es keine Schnittpunkte zwischen nicht benachbarten Kanten geben darf.
 \\\\
-Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphen $G(V,E,L)$ in die Ebene, die die folgenden Bedingungen erfüllen:
+Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphen $G(V,E,L)$ in die Ebene, die die folgenden Bedingungen erfüllen \textit{(hard constraints)}:
 \bigskip
 
 \begin{description}
@@ -30,7 +30,8 @@ Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphe
 \bigskip
 \end{description}
 
-\noindent Es wird insbesondere eine Einbettung $P'$ gesucht, die möglichst kurze Kantenlängen sowie wenige, bestenfalls stumpfwinklige „Knicke“ pro Linie hat.
+% todo: soft constraints als liste
+\noindent Es wird insbesondere eine Einbettung $P'$ gesucht, die möglichst kurze Kantenlängen sowie wenige, bestenfalls stumpfwinklige „Knicke“ pro Linie hat \textit{(soft constraints)}.
 \bigskip
 \bigskip
 \bigskip
