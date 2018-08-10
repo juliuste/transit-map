@@ -1,5 +1,5 @@
 \documentclass[a4paper,11pt]{amsart}
-\usepackage[ngerman,german,english]{babel}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{booktabs}
@@ -34,8 +34,36 @@ Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphe
 \noindent Es wird insbesondere eine Einbettung $P'$ gesucht, die möglichst kurze Kantenlängen sowie wenige, bestenfalls stumpfwinklige „Knicke“ pro Linie hat \textit{(soft constraints)}.
 \bigskip
 \bigskip
+
+\section*{Ansatz}
+
+\noindent Wie bereits von \textsc{Nöllenburg et al.} gezeigt, lässt sich das Problem als Problem der ganzzahligen Optimierung \textit{(MIP)} formulieren.
 \bigskip
+\bigskip
+
+\section*{Lemmata}
+
+\noindent Bei der Formulierung des Modells wird auf die folgenden Hilfskonstrukte zurückgegriffen, mit denen die meisten Leserinnen und Leser jedoch vertraut sein sollten.
+
+\subsection*{Nicht-Gleichung} $x \ne y$ kann mit Hilfe einer zusätzlichen binären Variable $b$ linearisiert werden:
+\begin{align*}
+x - y &\le - \varepsilon + M b\\
+x - y &\ge \varepsilon - (1-b)\cdot M
+\end{align*}
+wobei $\left|x-y\right| \gg \varepsilon > 0$, $M \gg x$ und $M \gg y$.
+\bigskip
+
+\subsection*{Countinous-Binary-Produkt}$x = A \cdot b$ mit $M \gg A \in \mathbb{Q_+}, b \in \{0, 1\}$ kann folgendermaßen linearisiert werden:
+\begin{align*}
+x &\le M b\\
+x &\le A\\
+x &\ge A - (1-b) \cdot M\\
+x &\ge 0\\
+\end{align*}
 
 % todo
 
+\bigskip
+\bigskip
+\bigskip
 \end{document}
