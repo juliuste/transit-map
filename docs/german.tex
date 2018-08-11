@@ -6,10 +6,12 @@
 \usepackage{graphicx}
 \usepackage{listings}
 
-\title{Automatisches Generieren schematischer Verkehrsnetzkarten als Problem der ganzzahligen Optimierung (MIP)}
+\title[Generieren schematischer Verkehrsnetzkarten]{Automatisches Generieren schematischer Verkehrsnetzkarten als Problem der ganzzahligen Optimierung (MIP)}
 \author{Julius Tens, Dirk Schumacher}
 \email{tensjuli@math.hu-berlin.de}
 % \date{1. August 2018}
+
+% todo: edge ordering / regions
 
 \begin{document}
 \maketitle
@@ -22,11 +24,13 @@ Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphe
 \bigskip
 
 \begin{description}
+\item[Planarität] $P'$ ist eine planare Einbettung von $G$ in die euklidische Ebene.
+\bigskip
 \item[Oktilinearität] Alle Kanten müssen Strecken sein, die parallel oder senkrecht zur x-Achse oder zur Identität verlaufen.
 \bigskip
-\item[Bewahrung der Regionen] $P'$ enthält die gleichen Regionen (\textit{Faces}) wie $P$, d.h. die „Sortierung der Kanten“ an jedem Knoten muss gleich bleiben.
-\bigskip
-\item[Mindestlängen] Jede Kante muss eine Länge $l_e >= l_{min}$ (in Manhattan-Metrik) haben.
+% \item[Bewahrung der Regionen] $P'$ enthält die gleichen Regionen (\textit{Faces}) wie $P$, d.h. die „Sortierung der Kanten“ an jedem Knoten muss gleich bleiben.
+% \bigskip
+\item[Mindestlängen] Jede Kante muss eine Länge $l_e >= l_{min}$ (in Tschebyschow-Norm) haben.
 \bigskip
 \end{description}
 
@@ -34,13 +38,15 @@ Gesucht sind nun weitere \textit{geradlinige} Einbettungen $P'$ desselben Graphe
 \noindent Es wird insbesondere eine Einbettung $P'$ gesucht, die möglichst kurze Kantenlängen sowie wenige, bestenfalls stumpfwinklige „Knicke“ pro Linie hat \textit{(soft constraints)}.
 \bigskip
 \bigskip
-
+\hrule
+\hrule
 \section*{Ansatz}
 
 \noindent Wie bereits von \textsc{Nöllenburg et al.} gezeigt, lässt sich das Problem als Problem der ganzzahligen Optimierung \textit{(MIP)} formulieren.
 \bigskip
 \bigskip
-
+\hrule
+\hrule
 \section*{Lemmata}
 
 \noindent Bei der Formulierung des Modells wird auf die folgenden Hilfskonstrukte zurückgegriffen, mit denen die meisten Leserinnen und Leser jedoch vertraut sein sollten.
@@ -53,6 +59,7 @@ x - y &\ge \varepsilon - (1-b)\cdot M
 wobei $\left|x-y\right| \gg \varepsilon > 0$, $M \gg x$ und $M \gg y$.
 \bigskip
 
+
 \subsection*{Countinous-Binary-Produkt}$x = A \cdot b$ mit $M \gg A \in \mathbb{Q_+}, b \in \{0, 1\}$ kann folgendermaßen linearisiert werden:
 \begin{align*}
 x &\le M b\\
@@ -60,10 +67,12 @@ x &\le A\\
 x &\ge A - (1-b) \cdot M\\
 x &\ge 0\\
 \end{align*}
+\hrule
+\hrule
 
 \section*{Formulierung}
 
-\noindent Es sind $x_n, y_n$ die Koordinaten des Knoten $n$ in der gesuchten Einbettung $P'$, sowie $l_e$ die Länge (in Manhattan-Metrik) der Kante $e$:
+\noindent Es sind $x_n, y_n$ die Koordinaten des Knoten $n$ in der gesuchten Einbettung $P'$, sowie $l_e$ die Länge (in Tschebyschow-Norm) der Kante $e$:
 \bigskip
 \begin{gather*}
 x_n, y_n \in \mathbb{Q}\\
@@ -75,14 +84,16 @@ l_{min} \le l_e \le l_{max}
 \noindent Des Weiteren wird für jede Kante $e$ einer ihrer Knoten als Startpunkt $S_e$ (\textit{source}) festgelegt, der zweite Knoten ist dann Zielpunkt $T_e$ (\textit{target}).\\
 
 \noindent Die \textit{hard constriants} lassen sich nun unter Zuhilfenahme jeweils aufgeführter weiterer Variablen wie folgt formulieren:
+\bigskip
+\hrule
 
 \subsection*{Oktilinearität und Mindestlängen}
 Für jede Kante $e$ werden binäre Variablen $a_e, b_e, c_e, d_e$ eingeführt, für die gilt:
 \bigskip
 \begin{gather*}
-a_e, b_e, c_e, d_e \in \{0, 1\}\\\\
+a_e, b_e, c_e, d_e \in \{0, 1\}\\
 x_{T_e} - x_{S_e} = (a_e + b_e) \cdot l_e\\
-a_e + b_e \le 1\\\\
+a_e + b_e \le 1\\
 y_{T_e} - y_{S_e} = (c_e + d_e) \cdot l_e\\
 c_e + d_e \le 1
 \end{gather*}
@@ -90,7 +101,7 @@ c_e + d_e \le 1
 \bigskip
 
 \noindent Die binären Variablen $a_e, b_e, c_e, d_e$ werden zudem durch drei weitere Gleichungen so eingeschränkt, dass die Orientierung einer Kante in $P'$ nur eine der beiden der in der Originaleinbettung $P$ nächstliegenden oktilinearen Orientierungen sein kann.\\\\
-Ein Beispiel: Die Kante mit dem Richtungsvektor $(1, 2)^T$ in $P$ kann dann in $P'$ nur den Richtungsvektor $(1, 1)^T$ ($a = 1$, $b = 0$, $c = 1$, $d = 0$) oder $(0, 1)^T$ ($a = 0$, $b = 0$, $c = 1$, $d = 0$) haben. Daraus folgen in diesem Fall die folgenden Gleichungen:
+Ein Beispiel: Die Kante mit dem Richtungsvektor $(1, 2)^T$ in $P$ kann in $P'$ nur den Richtungsvektor $(1, 1)^T$ ($a = 1$, $b = 0$, $c = 1$, $d = 0$) oder $(0, 1)^T$ ($a = 0$, $b = 0$, $c = 1$, $d = 0$) haben. Daraus folgen in diesem Fall die folgenden Gleichungen:
 \bigskip
 \begin{gather*}
 b = 0\\
@@ -99,8 +110,56 @@ d = 0
 \end{gather*}
 
 \bigskip
-\noindent Mit $a, b, c, d$ sowie den Variablen für die Produkte aus Binary und Continuous werden pro Kante insgesamt 4 binäre und 2 kontinuierliche Variablen hinzugefügt.
+\noindent Mit $a, b, c, d$ sowie den Variablen für die Produkte aus Binary und Continuous werden pro Kante also insgesamt 4 binäre und 2 kontinuierliche Variablen hinzugefügt, sowie 15 (Un-) Gleichungen.
+\bigskip
+\hrule
 
+\subsection*{Planarität}
+
+Die gesuchte Einbettung $P'$ ist planar, wenn sich nicht-benachbarte Kanten in keinem- und benachbarte Kanten in genau einem Punkt berühren bzw. schneiden.
+
+\subsubsection*{Benachbarte Kanten} Für jedes Paar anliegender (benachbarter) Kanten $p, q \in E$ werden die folgenden Gleichungen aufgestellt:
+\bigskip
+\begin{gather*}
+\left\{\begin{array}{lr}
+    3 (a_p + b_p) + (c_p + d_p) \ne 3 (a_q + b_q) + (c_q + d_q), \text{ &falls } T_p = S_q \lor T_q = S_p \\
+    3 (a_p + b_p) + (c_p + d_p) \ne 3 (b_q - a_q) + (d_q - c_q), \text{ &andernfalls}
+\end{array}\right\}
+\end{gather*}
+
+\bigskip
+\noindent Für jede Kante mit $k$ benachbarten Kanten werden also $2k$ Ungleichungen und $k$ binäre Variablen hinzugefügt.
+
+\subsubsection*{Nicht-benachbarte Kanten}
+
+Um Sicherzustellen, dass zwei nicht-benachbarte Kanten $p$ und $q$ keine Schnitt- oder Berührpunkte haben, müssen einige Vorüberlegungen angestellt werden:\\\\
+Sei $G$ die Menge aller Geraden in der euklidischen Ebene, die \textit{zwischen} $p$ und $q$ verlaufen, ohne diese zu berühren oder zu schneiden. Zudem sei $O$ die Menge aller oktilinearen Geraden in $G$. Dann ist die Menge $M$ wie folgt definiert:
+\bigskip
+\begin{gather*}
+M = \left\{\begin{array}{lr}
+    O, \text{ &falls } O \ne \emptyset \\
+    G, \text{ &andernfalls}
+\end{array}\right\}
+\end{gather*}
+
+\bigskip
+\noindent Aus der Planarität der Einbettung $P$ folgt im Übrigen $M \ne \emptyset$.\\\\
+Wir definieren des Weiteren den Abstand zweier Kanten \textit{bezüglich einer Geraden $g$} als euklidische Länge der kürzestmöglichen, zu $g$ orthogonalen Strecke, die beide Kanten berührt. \\\\
+Gesucht wird nun eine Gerade $m \in M$ mit größtmöglichem Abstand zwischen $p$ und $q$ \textit{bezüglich $m$}.\\\\
+Hat $m$ die Geradengleichung $ax + by + c = 0$ und ist o.B.d.A. $ax_S_p + by_S_p < ax_S_q + by_S_q$, stellen die folgenden 4 Gleichungen sicher, dass sich die nicht benachbarten Kanten $p$ und $q$ weder berühren noch schneiden (mit Mindestabstand $d_{min}$):
+\bigskip
+\begin{gather*}
+ax_S_p + by_S_p + d_{min} < ax_S_q + by_S_q\\
+ax_S_p + by_S_p + d_{min} < ax_T_q + by_T_q\\
+ax_T_p + by_T_p + d_{min} < ax_S_q + by_S_q\\
+ax_T_p + by_T_p + d_{min} < ax_T_q + by_T_q
+\end{gather*}
+
+\bigskip
+\noindent Für jede Kante mit $k$ nicht-benachbarten Kanten werden also $4k$ Ungleichungen, aber keine weiteren Variablen hinzugefügt.
+\bigskip
+\hrule
+\hrule
 
 % todo
 
